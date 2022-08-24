@@ -44,6 +44,13 @@ def missing_values_table(df: pd.DataFrame) -> pd.DataFrame:
     # Return the dataframe with missing information
     return mis_val_table_ren_columns
 
+def find_agg(df:pd.DataFrame, agg_column:str, agg_metric:str, col_name:str, top= None, order=False )->pd.DataFrame:
+    
+    new_df = df.groupby(agg_column)[col_name].agg(agg_metric).reset_index(name=col_name).\
+                        sort_values(by=col_name, ascending=order)[:top]
+    
+    return new_df
+
 def fix_outlier(df, column):
     df[column] = np.where(df[column] > df[column].quantile(0.95), df[column].median(),df[column])
     
@@ -53,12 +60,6 @@ def fix_outlier(df, column):
 def format_float(value):
     return f'{value:,.2f}'
 
-def find_agg(df:pd.DataFrame, agg_column:str, agg_metric:str, col_name:str, top:int, order=False )->pd.DataFrame:
-    
-    new_df = df.groupby(agg_column)[agg_column].agg(agg_metric).reset_index(name=col_name).\
-                        sort_values(by=col_name, ascending=order)[:top]
-    
-    return new_df
 
 def convert_bytes_to_megabytes(df, bytes_data):
     """
