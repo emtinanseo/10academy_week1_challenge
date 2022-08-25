@@ -12,3 +12,5 @@ __pycache__/
 .cachedata/
 /data
 .ipynb_checkpoints/
+totalDL.jpg
+totalUL.jpg
