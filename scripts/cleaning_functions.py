@@ -81,4 +81,4 @@ def convert_bytes_to_megabytes(df, bytes_data):
     
     return df[bytes_data]
 
-#pd.options.display.float_format = format_float
+pd.options.display.float_format = format_float

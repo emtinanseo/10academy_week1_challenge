@@ -56,6 +56,3 @@ def plot_scatter(df: pd.DataFrame, x_col: str, y_col: str, title: str, hue: str,
     plt.xticks(fontsize=14)
     plt.yticks( fontsize=14)
     plt.show()
-
-
-#pd.options.display.float_format = format_float
