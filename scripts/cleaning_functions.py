@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 def percent_missing(df: pd.DataFrame, cols=None):
     full_num_enteries = df.shape[0]
